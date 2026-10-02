@@ -1,0 +1,24 @@
+[package]
+name = "oryaml"
+version = "0.1.0"
+description = "Fast, correct Python YAML library written in Rust"
+authors = []
+edition = "2024"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/ashhadahmd/oryaml"
+readme = "README.md"
+
+[lib]
+name = "oryaml"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version="0.27.0", features = ["extension-module"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_yaml = "0.9.34"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true
+debug = false
